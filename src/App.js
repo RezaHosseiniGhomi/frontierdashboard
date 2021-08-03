@@ -7,8 +7,8 @@ import FrontierDashboard from './components/FrontierDashboard';
 function App() {
   return (
     <Router>
-      <Route path="/frontierdashboard/" exact component={StatewideDashboard} />
-      <Route exact path="/frontierdashboard/frontier" exact component={FrontierDashboard} />
+      <Route path="/" exact component={StatewideDashboard} />
+      <Route exact path="/frontier" exact component={FrontierDashboard} />
     </Router>
   );
 }
