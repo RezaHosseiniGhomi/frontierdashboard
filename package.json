@@ -2,7 +2,7 @@
   "name": "dashboard",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://aaz25.github.io/frontierdashboard",
+  "homepage": "http://aaz25.github.io/frontierdashboard/",
   "dependencies": {
     "@material-ui/pickers": "^3.3.10",
     "@testing-library/jest-dom": "^5.14.1",
