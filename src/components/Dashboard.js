@@ -144,6 +144,21 @@ const timeToReadmission = [
   { date: new Date('2021-08'), rate: 70 }
 ];
 
+const followupRates = [
+  { date: new Date('2020-09'), rate: 50.92 },
+  { date: new Date('2020-10'), rate: 52.44 },
+  { date: new Date('2020-11'), rate: 53.67 },
+  { date: new Date('2020-12'), rate: 52.27 },
+  { date: new Date('2021-01'), rate: 37.29 },
+  { date: new Date('2021-02'), rate: 44.05 },
+  { date: new Date('2021-03'), rate: 54.03 },
+  { date: new Date('2021-04'), rate: 57.37 },
+  { date: new Date('2021-05'), rate: 49.75 },
+  { date: new Date('2021-06'), rate: 42.52 },
+  { date: new Date('2021-07'), rate: 56.16 },
+  { date: new Date('2021-08'), rate: 53.41 }
+];
+
 const stayData = [
   { date: new Date('2020-09'), rate: 9 },
   { date: new Date('2020-10'), rate: 9 },
@@ -644,6 +659,16 @@ export default function Dashboard() {
                   title='Average Time since Last Hospitalization'
                   data={timeToReadmission}
                   yAxisLabel='Days'
+                />
+              </Paper>
+            </Grid>
+            {/* Followup Rates */}
+            <Grid item xs={6}>
+              <Paper className={fixedHeightPaper}>
+                <RateChart
+                  title='Percent of Patients Discharged with Followup Plans within 4 Weeks'
+                  data={followupRates}
+                  yAxisLabel='Percent'
                 />
               </Paper>
             </Grid>
