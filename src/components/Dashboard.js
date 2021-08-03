@@ -4,17 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Drawer from '@material-ui/core/Drawer';
 import DashboardIcon from '@material-ui/icons/Dashboard';
-import {
-  Box,
-  Button,
-  Dialog,
-  DialogActions,
-  DialogContent,
-  DialogTitle,
-  Icon,
-  MenuItem,
-  TextField
-} from '@material-ui/core';
+import { Box, Icon } from '@material-ui/core';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
@@ -427,7 +417,7 @@ export default function Dashboard() {
     document.getElementById(event.target.value).scrollIntoView();
   };
 
-  // transfer patient
+  // refer patient
   const [open, setOpen] = useState(false);
   const handleClickOpen = () => {
     setOpen(true);
@@ -594,16 +584,6 @@ export default function Dashboard() {
                 />
               </Paper>
             </Grid>
-            {/* Followup Rates */}
-            <Grid item xs={6}>
-              <Paper className={fixedHeightPaper}>
-                <RateChart
-                  title='Percent of Patients Discharged with Followup Plans within 4 Weeks'
-                  data={followupRates}
-                  yAxisLabel='Percent'
-                />
-              </Paper>
-            </Grid>
             {/* Average Hospital Stay Duration */}
             <Grid item xs={6}>
               <Paper className={fixedHeightPaper}>
@@ -611,6 +591,16 @@ export default function Dashboard() {
                   title='Average Hospital Stay Duration'
                   data={stayData}
                   yAxisLabel='Days'
+                />
+              </Paper>
+            </Grid>
+            {/* Followup Rates */}
+            <Grid item xs={6}>
+              <Paper className={fixedHeightPaper}>
+                <RateChart
+                  title='Percent of Patients Discharged with Followup Plans within 4 Weeks'
+                  data={followupRates}
+                  yAxisLabel='Percent'
                 />
               </Paper>
             </Grid>

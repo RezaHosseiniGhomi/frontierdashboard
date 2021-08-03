@@ -5,7 +5,7 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles({
   inactiveButton: {
     color: 'primary',    
-    backgroundColor: '#676fa1'
+    opacity: '0.8'
   },
   activeButton: {
     color: 'primary'

@@ -26,7 +26,7 @@ const HospitalMap = ({ title, data }) => {
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
         {data.map(item => (
-          <Marker position={item.coordinates} key={item.name}>
+          <Marker position={item.coordinates} key={item.name} riseOnHover>
             <Tooltip>
               <Typography variant='h6' align='center' color='primary'>{item.name}</Typography>
               <Typography variant='subtitle1' align='center'>{item.city}</Typography>
