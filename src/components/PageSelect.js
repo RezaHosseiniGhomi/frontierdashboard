@@ -27,7 +27,7 @@ export default function PageSelect({
         className={active1 ? classes.activeButton : classes.inactiveButton} 
         onClick={handleClick1}
         component={Link}
-        to={'/frontierdashboard/frontier'}
+        to={'/frontier'}
       >
         Frontier
       </Button>
@@ -35,7 +35,7 @@ export default function PageSelect({
         className={active2 ? classes.activeButton : classes.inactiveButton} 
         onClick={handleClick2}
         component={Link}
-        to={'/frontierdashboard/'}
+        to={'/'}
       >
         Statewide
       </Button>

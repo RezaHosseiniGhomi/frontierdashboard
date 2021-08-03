@@ -13,19 +13,37 @@ import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import RateChart from './RateChart';
-import Beds from './Beds';
+import VisitTypes from './VisitTypes';
 import Availability from './Availability';
-import HospitalMap from './HospitalMap';
+import EncounterBars from './EncounterBars';
 import PageSelect from './PageSelect';
 import SectionSelect from './SectionSelect';
 import DateRange from './DateRange';
 import ReferPatient from './ReferPatient';
 
+// DATA
+const encounters = [
+  { date: new Date('2020-09'), rate: 233 },
+  { date: new Date('2020-10'), rate: 322 },
+  { date: new Date('2020-11'), rate: 325 },
+  { date: new Date('2020-12'), rate: 385 },
+  { date: new Date('2021-01'), rate: 413 },
+  { date: new Date('2021-02'), rate: 497 },
+  { date: new Date('2021-03'), rate: 516 },
+  { date: new Date('2021-04'), rate: 553 },
+  { date: new Date('2021-05'), rate: 553 },
+  { date: new Date('2021-06'), rate: 659 },
+  { date: new Date('2021-07'), rate: 668 },
+  { date: new Date('2021-08'), rate: 714 }
+];
+
 // INPUT OPTIONS
 const sections = [
-  { id: 'service', label: 'Service Accessibility' },
-  { id: 'epidemiology', label: 'Epidemiology' }
-]
+  { id: 'activity', label: 'Activity' },
+  { id: 'patients', label: 'Patients' },
+  { id: 'providers', label: 'Providers' },
+  { id: 'community-integration', label: 'Community Integration' }
+];
 
 const dates = [
   new Date('2020-09'),
@@ -265,6 +283,50 @@ export default function Dashboard() {
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
+          {/* Activity */}
+          <Box id='activity' className={classes.sectionHeader}>
+            <Typography color='textSecondary' variant='h4'>Activity</Typography>
+            <Divider />
+          </Box>
+          <Grid container spacing={2}>
+            {/* Number of Encounters per Month */}
+            <Grid item xs={6}>
+              <Paper className={fixedHeightPaper}>
+                <RateChart
+                  title='Number of Encounters per Month'
+                  data={encounters}
+                  yAxisLabel=''
+                />
+              </Paper>
+            </Grid>
+            {/* Number of Encounters per Provider */}
+            <Grid item xs={6}>
+              <Paper className={fixedHeightPaper}>
+                <EncounterBars />
+              </Paper>
+            </Grid>
+            {/* Scheduled vs. Unscheduled Visits */}
+            <Grid item xs={6}>
+              <Paper className={fixedHeightPaper}>
+                <VisitTypes />
+              </Paper>
+            </Grid>
+          </Grid>
+          {/* Patients */}
+          <Box id='patients' className={classes.sectionHeader}>
+            <Typography color='textSecondary' variant='h4'>Patients</Typography>
+            <Divider />
+          </Box>
+          {/* Providers */}
+          <Box id='providers' className={classes.sectionHeader}>
+            <Typography color='textSecondary' variant='h4'>Providers</Typography>
+            <Divider />
+          </Box>
+          {/* Community Integration */}
+          <Box id='community-integration' className={classes.sectionHeader}>
+            <Typography color='textSecondary' variant='h4'>Community Integration</Typography>
+            <Divider />
+          </Box>
         </Container>
       </main>
     </div>
