@@ -5,7 +5,7 @@ import Title from './Title';
 
 export default function Beds({
   title,
-  data
+  data,
 }) {
   const theme = useTheme();
 

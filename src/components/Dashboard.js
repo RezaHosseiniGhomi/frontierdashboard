@@ -144,6 +144,21 @@ const timeToReadmission = [
   { date: new Date('2021-08'), rate: 70 }
 ];
 
+const stayData = [
+  { date: new Date('2020-09'), rate: 9 },
+  { date: new Date('2020-10'), rate: 9 },
+  { date: new Date('2020-11'), rate: 4 },
+  { date: new Date('2020-12'), rate: 3 },
+  { date: new Date('2021-01'), rate: 3 },
+  { date: new Date('2021-02'), rate: 7 },
+  { date: new Date('2021-03'), rate: 4 },
+  { date: new Date('2021-04'), rate: 7 },
+  { date: new Date('2021-05'), rate: 9 },
+  { date: new Date('2021-06'), rate: 6 },
+  { date: new Date('2021-07'), rate: 10 },
+  { date: new Date('2021-08'), rate: 7 }
+];
+
 const edLocations = [
   {
     name: 'Glendive Medical Center',
@@ -628,6 +643,16 @@ export default function Dashboard() {
                 <RateChart
                   title='Average Time since Last Hospitalization'
                   data={timeToReadmission}
+                  yAxisLabel='Days'
+                />
+              </Paper>
+            </Grid>
+            {/* Average Hospital Stay Duration */}
+            <Grid item xs={6}>
+              <Paper className={fixedHeightPaper}>
+                <RateChart
+                  title='Average Hospital Stay Duration'
+                  data={stayData}
                   yAxisLabel='Days'
                 />
               </Paper>
