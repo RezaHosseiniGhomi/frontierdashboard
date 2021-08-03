@@ -1,6 +1,7 @@
 import React from "react";
 import { ButtonGroup, Button } from "@material-ui/core";
 import { makeStyles } from '@material-ui/core/styles';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles({
   inactiveButton: {
@@ -22,10 +23,20 @@ export default function PageSelect({
 
   return (
     <ButtonGroup variant='contained' color='primary'>
-      <Button className={active1 ? classes.activeButton : classes.inactiveButton} onClick={handleClick1}>
+      <Button 
+        className={active1 ? classes.activeButton : classes.inactiveButton} 
+        onClick={handleClick1}
+        component={Link}
+        to={'/frontierdashboard/frontier'}
+      >
         Frontier
       </Button>
-      <Button className={active2 ? classes.activeButton : classes.inactiveButton} onClick={handleClick2}>
+      <Button 
+        className={active2 ? classes.activeButton : classes.inactiveButton} 
+        onClick={handleClick2}
+        component={Link}
+        to={'/frontierdashboard/'}
+      >
         Statewide
       </Button>
     </ButtonGroup>
