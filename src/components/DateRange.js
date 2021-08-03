@@ -1,57 +1,25 @@
-import React from 'react';
+import React from "react";
+import { FormControl, InputLabel, Select, MenuItem, Typography } from "@material-ui/core";
 import { makeStyles } from '@material-ui/core/styles';
-import InputLabel from '@material-ui/core/InputLabel';
-import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
-import MenuItem from '@material-ui/core/MenuItem';
-import { Box, Typography } from '@material-ui/core';
-import { timeFormat } from 'd3';;
+import { timeFormat } from "d3-time-format";
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
-    marginRight: theme.spacing(2),
-    marginLeft: theme.spacing(2),
-    align: 'center',
-    width: '40%'
-  },
-  box: {
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-    width: '100%'
+    margin: theme.spacing(1),
+    minWidth: 60
   }
 }));
 
-const dates = [
-  new Date('2020-09'),
-  new Date('2020-10'),
-  new Date('2020-11'),
-  new Date('2020-12'),
-  new Date('2021-01'),
-  new Date('2021-02'),
-  new Date('2021-03'),
-  new Date('2021-04'),
-  new Date('2021-05'),
-  new Date('2021-06'),
-  new Date('2021-07'),
-  new Date('2021-08')
-];
-
-export default function DateRange({
-  startDate,
-  handleStartChange,
-  endDate,
-  handleEndChange
-}) {
+export default function DateRange({ dates, startDate, handleStartChange, endDate, handleEndChange }) {
   const classes = useStyles();
 
   return (
-    <Box className={classes.box}>
-      <FormControl className={classes.formControl}>
-        <InputLabel id='start-label'>Start Date</InputLabel>
+    <>
+      <FormControl className={classes.formControl} variant='outlined' size='small' fullWidth>
+        <InputLabel id='start-label'>Start</InputLabel>
         <Select
           labelId='start-label'
+          label='Start'
           id='start'
           value={startDate}
           onChange={handleStartChange}
@@ -59,15 +27,16 @@ export default function DateRange({
           renderValue={(value) => timeFormat('%b %y')(value)}
         >
           {dates.map((date) => (
-            <MenuItem value={date} key={date.getMonth()}>{timeFormat('%b %Y')(date)}</MenuItem>
+            <MenuItem value={date} key={date}>{timeFormat('%b %y')(date)}</MenuItem>
           ))}
         </Select>
       </FormControl>
-      <Typography variant='body1' color='textSecondary'>to</Typography>
-      <FormControl className={classes.formControl}>
-        <InputLabel id='end-label'>End Date</InputLabel>
+      <Typography variant='body2' color='textPrimary'>to</Typography>
+      <FormControl className={classes.formControl} variant='outlined' size='small' fullWidth>
+        <InputLabel id='end-label'>End</InputLabel>
         <Select
           labelId='end-label'
+          label='End'
           id='end'
           value={endDate}
           onChange={handleEndChange}
@@ -75,10 +44,10 @@ export default function DateRange({
           renderValue={(value) => timeFormat('%b %y')(value)}
         >
           {dates.map((date) => (
-            <MenuItem value={date} key={date}>{timeFormat('%b %Y')(date)}</MenuItem>
+            <MenuItem value={date} key={date}>{timeFormat('%b %y')(date)}</MenuItem>
           ))}
         </Select>
       </FormControl>
-    </Box>
-  );
-}
+    </>
+  )
+};

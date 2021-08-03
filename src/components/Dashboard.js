@@ -11,19 +11,10 @@ import {
   DialogActions,
   DialogContent,
   DialogTitle,
-  FormControl,
   Icon,
-  InputLabel,
-  Select,
   MenuItem,
   TextField
 } from '@material-ui/core';
-import {
-  MuiPickersUtilsProvider,
-  KeyboardTimePicker,
-  KeyboardDatePicker,
-} from '@material-ui/pickers';
-import DateFnsUtils from '@date-io/date-fns';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
@@ -36,8 +27,9 @@ import Beds from './Beds';
 import Availability from './Availability';
 import HospitalMap from './HospitalMap';
 import PageSelect from './PageSelect';
-import { timeFormat } from 'd3';
 import SectionSelect from './SectionSelect';
+import DateRange from './DateRange';
+import ReferPatient from './ReferPatient';
 
 // DATASETS
 const adultBeds = [
@@ -397,19 +389,6 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: theme.spacing(2),
     display: 'flex',
     justifyContent: 'center'
-  },
-  formControl: {
-    margin: theme.spacing(1),
-    minWidth: 60
-  },
-  dialogContent: {
-    display: 'flex',
-    flexFlow: 'row wrap'
-  },
-  textField: {
-    margin: theme.spacing(1),
-    align: 'center',
-    minWidth: '45%'
   }
 }));
 
@@ -504,71 +483,24 @@ export default function Dashboard() {
         </Box>
         {/* Date Range */}
         <Box className={classes.navTool} alignItems='center'>
-          <FormControl className={classes.formControl} variant='outlined' size='small' fullWidth>
-            <InputLabel id='start-label'>Start</InputLabel>
-            <Select
-              labelId='start-label'
-              label='Start'
-              id='start'
-              value={startDate}
-              onChange={handleStartChange}
-              displayEmpty
-              renderValue={(value) => timeFormat('%b %y')(value)}
-            >
-              {dates.map((date) => (
-                <MenuItem value={date} key={date}>{timeFormat('%b %y')(date)}</MenuItem>
-              ))}
-            </Select>
-          </FormControl>
-          <Typography variant='body2' color='textPrimary'>to</Typography>
-          <FormControl className={classes.formControl} variant='outlined' size='small' fullWidth>
-            <InputLabel id='end-label'>End</InputLabel>
-            <Select
-              labelId='end-label'
-              label='End'
-              id='end'
-              value={endDate}
-              onChange={handleEndChange}
-              displayEmpty
-              renderValue={(value) => timeFormat('%b %y')(value)}
-            >
-              {dates.map((date) => (
-                <MenuItem value={date} key={date}>{timeFormat('%b %y')(date)}</MenuItem>
-              ))}
-            </Select>
-          </FormControl>
+          <DateRange
+            dates={dates}
+            startDate={startDate}
+            handleStartChange={handleStartChange}
+            endDate={endDate}
+            handleEndChange={handleEndChange}
+          />
         </Box>
         {/* Refer Patient */}
         <Box className={classes.navTool}>
-          <Button id='refer-patient' variant='contained' color='primary' onClick={handleClickOpen}>
-            Refer Patient
-          </Button>
-          <Dialog open={open} onClose={handleClose} fullWidth maxWidth='sm'>
-            <DialogTitle id='refer-patient-title'>Refer a Patient</DialogTitle>
-            <DialogContent className={classes.dialogContent}>
-              <TextField required id='patient-name' label='Patient Name' className={classes.textField} />
-              <TextField
-                select
-                required
-                id='hospital'
-                label='Hospital'
-                value={hospital}
-                onChange={handleHospitalChange}
-                helperText='Please select a hospital'
-                variant='outlined'
-                className={classes.textField}
-              >
-                {hospitals.map((hospital) => (
-                  <MenuItem key={hospital} value={hospital}>{hospital}</MenuItem>
-                ))}
-              </TextField>
-              <TextField multiline id='description' label='Description' rows={6} fullWidth variant='outlined' className={classes.textField} />
-            </DialogContent>
-            <DialogActions>
-              <Button onClick={handleClose} color='primary'>Cancel</Button>
-              <Button onClick={handleClose} color='primary'>Submit Referral</Button>
-            </DialogActions>
-          </Dialog>
+          <ReferPatient
+            open={open}
+            handleClickOpen={handleClickOpen}
+            handleClose={handleClose}
+            hospital={hospital}
+            handleHospitalChange={handleHospitalChange}
+            hospitals={hospitals}
+          />
         </Box>
       </Drawer>
       <main className={classes.content}>
