@@ -14,7 +14,7 @@ import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import RateChart from './RateChart';
 import Beds from './Beds';
-import Availability from './Availability';
+import ProviderAvailability from './ProviderAvailability';
 import HospitalMap from './HospitalMap';
 import PageSelect from './PageSelect';
 import SectionSelect from './SectionSelect';
@@ -563,7 +563,7 @@ export default function Dashboard() {
             {/* Provider Availability */}
             <Grid item xs={6}>
               <Paper className={fixedHeightPaper}>
-                <Availability />
+                <ProviderAvailability />
               </Paper>
             </Grid>
           </Grid>

@@ -9,6 +9,10 @@ const xTickFormat = timeFormat('%b %Y');
 export default function RateChart({ title, data, yAxisLabel = 'Rate (per 100,000)' }) {
   const theme = useTheme();
 
+  for (let i = 0; i < data.length; i++) {
+    data[i].date = xTickFormat(data[i].date);
+  }
+
   return (
     <React.Fragment>
       <Title>{title}</Title>
@@ -26,7 +30,7 @@ export default function RateChart({ title, data, yAxisLabel = 'Rate (per 100,000
           <XAxis
             dataKey="date"
             stroke={theme.palette.text.secondary}
-            tickFormatter={xTickFormat}
+            // tickFormatter={xTickFormat}
           />
           <YAxis stroke={theme.palette.text.secondary}>
             <Label

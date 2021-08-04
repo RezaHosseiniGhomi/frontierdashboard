@@ -22,10 +22,10 @@ const data = [
 ];
 
 function dateFormat(date) {
-  return timeFormat('%b %e')(date);
+  return timeFormat('%B %e')(date);
 }
 
-export default function Availability() {
+export default function ProviderAvailability() {
   return (
     <>
       <Title>Provider Availability</Title>

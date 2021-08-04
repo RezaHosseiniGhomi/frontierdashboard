@@ -14,12 +14,13 @@ import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import RateChart from './RateChart';
 import PieGraph from './PieGraph';
-import Availability from './Availability';
-import EncounterBars from './EncounterBars';
+import ProviderAvailability from './ProviderAvailability';
+import HorizontalBars from './HorizontalBars';
 import PageSelect from './PageSelect';
 import SectionSelect from './SectionSelect';
 import DateRange from './DateRange';
 import ReferPatient from './ReferPatient';
+import AvailabilityByService from './AvailabilityByService';
 
 // DATA
 const encounters = [
@@ -35,6 +36,20 @@ const encounters = [
   { date: new Date('2021-06'), rate: 659 },
   { date: new Date('2021-07'), rate: 668 },
   { date: new Date('2021-08'), rate: 714 }
+];
+
+const encountersByProvider = [
+  { name: 'Ackerman', value: 145 },
+  { name: 'Truesdell', value: 112 },
+  { name: 'Ghomi', value: 87 },
+  { name: 'Sise', value: 82 },
+  { name: 'Lehman', value: 78 },
+  { name: 'Arzubi', value: 51 },
+  { name: 'Patel', value: 38 },
+  { name: 'Arias', value: 37 },
+  { name: 'Duong', value: 21 },
+  { name: 'Toretta', value: 11 },
+  { name: 'Frieder', value: 3 }
 ];
 
 const globalUtilization = [
@@ -57,7 +72,7 @@ const visitTypes = [
   { group: 'Unscheduled', percent: 37 }
 ];
 
-const ageDist = [
+const patientAges = [
   { group: '0-17', percent: 24.6 },
   { group: '18-25', percent: 12.5 },
   { group: '26-40', percent: 25.0 },
@@ -70,6 +85,24 @@ const patientGenders = [
   { group: 'Female', percent: 54.4 },
   { group: 'Male', percent: 42.9 },
   { group: 'Unknown', percent: 2.7 }
+];
+
+const patientRaces = [
+  { group: 'White', percent: 85.9 },
+  { group: 'Black', percent: 0.6 },
+  { group: 'Hispanic/Latino', percent: 4.1 },
+  { group: 'Asian', percent: 0.9 },
+  { group: 'Other', percent: 8.5 }
+];
+
+const providerUtilization = [
+  { name: 'Truesdell', value: 107 },
+  { name: 'Ackerman', value: 81 },
+  { name: 'Lehman', value: 55.4 },
+  { name: 'Toretta', value: 100 },
+  { name: 'Patel', value: 79 },
+  { name: 'Duong', value: 102 },
+  { name: 'Arias', value: 89 }
 ];
 
 // INPUT OPTIONS
@@ -337,7 +370,11 @@ export default function Dashboard() {
             {/* Number of Encounters per Provider */}
             <Grid item xs={6}>
               <Paper className={fixedHeightPaper}>
-                <EncounterBars />
+                <HorizontalBars 
+                  title='Number of Encounters per Provider'
+                  data={encountersByProvider}
+                  xAxisLabel='Encounters'
+                />
               </Paper>
             </Grid>
             {/* Scheduled vs. Unscheduled Visits */}
@@ -372,7 +409,7 @@ export default function Dashboard() {
               <Paper className={fixedHeightPaper}>
                 <PieGraph
                   title='Patient Ages'
-                  data={ageDist}
+                  data={patientAges}
                   colors={['#8884d8', '#82ca9d', '#ffc658', '#e6842a', '#e25a42', '#42a5b3']}
                 />
               </Paper>
@@ -387,12 +424,46 @@ export default function Dashboard() {
                 />
               </Paper>
             </Grid>
+            {/* Patient Races */}
+            <Grid item xs={6}>
+              <Paper className={fixedHeightPaper}>
+                <PieGraph
+                  title='Patient Race'
+                  data={patientRaces}
+                  colors={['#8884d8', '#82ca9d', '#ffc658', '#e6842a', '#e25a42']}
+                />
+              </Paper>
+            </Grid>
           </Grid>
           {/* Providers */}
           <Box id='providers' className={classes.sectionHeader}>
             <Typography color='textSecondary' variant='h4'>Providers</Typography>
             <Divider />
           </Box>
+          <Grid container spacing={2}>
+            {/* Provider Availability */}
+            <Grid item xs={6}>
+              <Paper className={fixedHeightPaper}>
+                <ProviderAvailability />
+              </Paper>
+            </Grid>
+            {/* Availability by Service */}
+            <Grid item xs={6}>
+              <Paper className={fixedHeightPaper}>
+                <AvailabilityByService />
+              </Paper>
+            </Grid>
+            {/* Provider Utilization */}
+            <Grid item xs={6}>
+              <Paper className={fixedHeightPaper}>
+                <HorizontalBars
+                  title='Provider Utilization'
+                  data={providerUtilization}
+                  formatter={(value, name, props ) => [`${value}%`, 'percent']}
+                />
+              </Paper>
+            </Grid>
+          </Grid>
           {/* Community Integration */}
           <Box id='community-integration' className={classes.sectionHeader}>
             <Typography color='textSecondary' variant='h4'>Community Integration</Typography>
