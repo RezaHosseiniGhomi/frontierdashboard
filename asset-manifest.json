@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/frontierdashboard/static/css/main.a617e044.chunk.css",
-    "main.js": "/frontierdashboard/static/js/main.696129f3.chunk.js",
-    "main.js.map": "/frontierdashboard/static/js/main.696129f3.chunk.js.map",
+    "main.js": "/frontierdashboard/static/js/main.1e75113f.chunk.js",
+    "main.js.map": "/frontierdashboard/static/js/main.1e75113f.chunk.js.map",
     "runtime-main.js": "/frontierdashboard/static/js/runtime-main.4ebc71d5.js",
     "runtime-main.js.map": "/frontierdashboard/static/js/runtime-main.4ebc71d5.js.map",
     "static/js/2.ea828c8f.chunk.js": "/frontierdashboard/static/js/2.ea828c8f.chunk.js",
@@ -17,6 +17,6 @@
     "static/js/runtime-main.4ebc71d5.js",
     "static/js/2.ea828c8f.chunk.js",
     "static/css/main.a617e044.chunk.css",
-    "static/js/main.696129f3.chunk.js"
+    "static/js/main.1e75113f.chunk.js"
   ]
 }
