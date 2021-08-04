@@ -3,28 +3,27 @@ import { PieChart, Pie, Cell, Legend, Tooltip, ResponsiveContainer } from 'recha
 import { useTheme } from '@material-ui/core';
 import Title from './Title';
 
-const data = [
-  { type: 'Scheduled', percent: 63 },
-  { type: 'UnScheduled', percent: 37 }
-];
-
-export default function VisitTypes() {
+export default function PieGraph({
+  title,
+  data,
+  colors
+}) {
   const theme = useTheme();
-  const colors = [theme.palette.primary.main, theme.palette.secondary.main];
 
   return (
     <>
-      <Title>Scheduled vs. Unscheduled Visits</Title>
+      <Title>{title}</Title>
       <ResponsiveContainer width='100%' height='100%'>
         <PieChart>
           <Pie
             dataKey="percent"
-            nameKey="type"
+            nameKey="group"
             data={data}
-            cx='50%'
+            cx='45%'
             cy='50%'
-            outerRadius='90%'
-            fill={theme.palette.primary.main}
+            outerRadius='80%'
+            startAngle={90}
+            endAngle={450}
             label
           >
             {data.map((entry, index) => (

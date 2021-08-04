@@ -13,7 +13,7 @@ import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import RateChart from './RateChart';
-import VisitTypes from './VisitTypes';
+import PieGraph from './PieGraph';
 import Availability from './Availability';
 import EncounterBars from './EncounterBars';
 import PageSelect from './PageSelect';
@@ -35,6 +35,41 @@ const encounters = [
   { date: new Date('2021-06'), rate: 659 },
   { date: new Date('2021-07'), rate: 668 },
   { date: new Date('2021-08'), rate: 714 }
+];
+
+const globalUtilization = [
+  { date: new Date('2020-09'), rate: 36 },
+  { date: new Date('2020-10'), rate: 40 },
+  { date: new Date('2020-11'), rate: 44 },
+  { date: new Date('2020-12'), rate: 45 },
+  { date: new Date('2021-01'), rate: 45 },
+  { date: new Date('2021-02'), rate: 46 },
+  { date: new Date('2021-03'), rate: 56 },
+  { date: new Date('2021-04'), rate: 63 },
+  { date: new Date('2021-05'), rate: 66 },
+  { date: new Date('2021-06'), rate: 87 },
+  { date: new Date('2021-07'), rate: 88 },
+  { date: new Date('2021-08'), rate: 90 }
+];
+
+const visitTypes = [
+  { group: 'Scheduled', percent: 63 },
+  { group: 'Unscheduled', percent: 37 }
+];
+
+const ageDist = [
+  { group: '0-17', percent: 24.6 },
+  { group: '18-25', percent: 12.5 },
+  { group: '26-40', percent: 25.0 },
+  { group: '41-55', percent: 14.3 },
+  { group: '56-64', percent: 12.0 },
+  { group: '65+', percent: 11.6 }
+];
+
+const patientGenders = [
+  { group: 'Female', percent: 54.4 },
+  { group: 'Male', percent: 42.9 },
+  { group: 'Unknown', percent: 2.7 }
 ];
 
 // INPUT OPTIONS
@@ -308,7 +343,21 @@ export default function Dashboard() {
             {/* Scheduled vs. Unscheduled Visits */}
             <Grid item xs={6}>
               <Paper className={fixedHeightPaper}>
-                <VisitTypes />
+                <PieGraph 
+                title="Scheduled vs. Unscheduled Visits"
+                data={visitTypes}
+                colors={['#8884d8', '#82ca9d']} 
+              />
+              </Paper>
+            </Grid>
+            {/* Percent Global Utilization */}
+            <Grid item xs={6}>
+              <Paper className={fixedHeightPaper}>
+                <RateChart
+                  title='Percent Global Utilization'
+                  data={globalUtilization}
+                  yAxisLabel='Percent'
+                />
               </Paper>
             </Grid>
           </Grid>
@@ -317,6 +366,28 @@ export default function Dashboard() {
             <Typography color='textSecondary' variant='h4'>Patients</Typography>
             <Divider />
           </Box>
+          <Grid container spacing={2}>
+            {/* Patient Ages */}
+            <Grid item xs={6}>
+              <Paper className={fixedHeightPaper}>
+                <PieGraph
+                  title='Patient Ages'
+                  data={ageDist}
+                  colors={['#8884d8', '#82ca9d', '#ffc658', '#e6842a', '#e25a42', '#42a5b3']}
+                />
+              </Paper>
+            </Grid>
+            {/* Patient Genders */}
+            <Grid item xs={6}>
+              <Paper className={fixedHeightPaper}>
+                <PieGraph
+                  title='Patient Genders'
+                  data={patientGenders}
+                  colors={['#8884d8', '#82ca9d', '#ffc658']}
+                />
+              </Paper>
+            </Grid>
+          </Grid>
           {/* Providers */}
           <Box id='providers' className={classes.sectionHeader}>
             <Typography color='textSecondary' variant='h4'>Providers</Typography>

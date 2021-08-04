@@ -511,6 +511,7 @@ export default function Dashboard() {
                 />
               </Paper>
             </Grid>
+            {/* Mental Health Hospitals */}
             <Grid item xs={6}>
               <Paper className={fixedHeightPaper}>
                 <HospitalMap
@@ -525,6 +526,7 @@ export default function Dashboard() {
                 <Beds
                   title='Available Adult Inpatient Psychiatric Beds'
                   data={adultBeds}
+                  fill='#3f51b5'
                 />
               </Paper>
             </Grid>
@@ -534,6 +536,7 @@ export default function Dashboard() {
                 <Beds
                   title='Available Child Inpatient Psychiatric Beds'
                   data={childBeds}
+                  fill='#42a5b3'
                 />
               </Paper>
             </Grid>
@@ -543,6 +546,7 @@ export default function Dashboard() {
                 <Beds
                   title='Available Adult EmPATH Seats'
                   data={adultEmPATH}
+                  fill='#82ca9d'
                 />
               </Paper>
             </Grid>
@@ -552,6 +556,7 @@ export default function Dashboard() {
                 <Beds
                   title='Available Child EmPATH Seats'
                   data={childEmPATH}
+                  fill='#8884d8'
                 />
               </Paper>
             </Grid>

@@ -6,6 +6,7 @@ import Title from './Title';
 export default function Beds({
   title,
   data,
+  fill
 }) {
   const theme = useTheme();
 
@@ -32,7 +33,7 @@ export default function Beds({
           </XAxis>
           <YAxis stroke={theme.palette.text.secondary} />
           <Tooltip />
-          <Bar dataKey="beds" fill={theme.palette.primary.main} />
+          <Bar dataKey="beds" fill={fill} />
         </BarChart>
       </ResponsiveContainer>
     </React.Fragment>
