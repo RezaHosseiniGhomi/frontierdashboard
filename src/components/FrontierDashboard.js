@@ -464,11 +464,6 @@ export default function Dashboard() {
               </Paper>
             </Grid>
           </Grid>
-          {/* Community Integration */}
-          <Box id='community-integration' className={classes.sectionHeader}>
-            <Typography color='textSecondary' variant='h4'>Community Integration</Typography>
-            <Divider />
-          </Box>
         </Container>
       </main>
     </div>
