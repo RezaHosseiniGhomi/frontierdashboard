@@ -2,7 +2,18 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Typography } from "@material-ui/core";
 import { MapContainer, TileLayer, Marker, Tooltip } from "react-leaflet";
+import 'leaflet/dist/leaflet.css';
 import Title from "./Title";
+import L from 'leaflet';
+import icon from 'leaflet/dist/images/marker-icon.png';
+import iconShadow from 'leaflet/dist/images/marker-shadow.png';
+
+let DefaultIcon = L.icon({
+  iconUrl: icon,
+  shadowUrl: iconShadow
+});
+
+L.Marker.prototype.options.icon = DefaultIcon;
 
 const useStyles = makeStyles((theme) => ({
   root: {

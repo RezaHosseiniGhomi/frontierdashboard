@@ -109,8 +109,7 @@ const providerUtilization = [
 const sections = [
   { id: 'activity', label: 'Activity' },
   { id: 'patients', label: 'Patients' },
-  { id: 'providers', label: 'Providers' },
-  { id: 'community-integration', label: 'Community Integration' }
+  { id: 'providers', label: 'Providers' }
 ];
 
 const dates = [
