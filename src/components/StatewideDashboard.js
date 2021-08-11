@@ -20,7 +20,6 @@ import PageSelect from './PageSelect';
 import SectionSelect from './SectionSelect';
 import DateRange from './DateRange';
 import ReferPatient from './ReferPatient';
-import Choropleth from './Choropleth';
 
 // DATASETS
 const adultBeds = [
@@ -565,12 +564,6 @@ export default function Dashboard() {
             <Grid item xs={6}>
               <Paper className={fixedHeightPaper}>
                 <ProviderAvailability />
-              </Paper>
-            </Grid>
-            {/* MedicAid Coverage */}
-            <Grid item xs={6}>
-              <Paper className={fixedHeightPaper}>
-                <Choropleth />
               </Paper>
             </Grid>
           </Grid>
