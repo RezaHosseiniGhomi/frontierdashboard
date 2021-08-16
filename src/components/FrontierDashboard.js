@@ -21,89 +21,7 @@ import SectionSelect from './SectionSelect';
 import DateRange from './DateRange';
 import ReferPatient from './ReferPatient';
 import AvailabilityByService from './AvailabilityByService';
-
-// DATA
-const encounters = [
-  { date: new Date('2020-09'), rate: 233 },
-  { date: new Date('2020-10'), rate: 322 },
-  { date: new Date('2020-11'), rate: 325 },
-  { date: new Date('2020-12'), rate: 385 },
-  { date: new Date('2021-01'), rate: 413 },
-  { date: new Date('2021-02'), rate: 497 },
-  { date: new Date('2021-03'), rate: 516 },
-  { date: new Date('2021-04'), rate: 553 },
-  { date: new Date('2021-05'), rate: 553 },
-  { date: new Date('2021-06'), rate: 659 },
-  { date: new Date('2021-07'), rate: 668 },
-  { date: new Date('2021-08'), rate: 714 }
-];
-
-const encountersByProvider = [
-  { name: 'Ackerman', value: 145 },
-  { name: 'Truesdell', value: 112 },
-  { name: 'Ghomi', value: 87 },
-  { name: 'Sise', value: 82 },
-  { name: 'Lehman', value: 78 },
-  { name: 'Arzubi', value: 51 },
-  { name: 'Patel', value: 38 },
-  { name: 'Arias', value: 37 },
-  { name: 'Duong', value: 21 },
-  { name: 'Toretta', value: 11 },
-  { name: 'Frieder', value: 3 }
-];
-
-const globalUtilization = [
-  { date: new Date('2020-09'), rate: 36 },
-  { date: new Date('2020-10'), rate: 40 },
-  { date: new Date('2020-11'), rate: 44 },
-  { date: new Date('2020-12'), rate: 45 },
-  { date: new Date('2021-01'), rate: 45 },
-  { date: new Date('2021-02'), rate: 46 },
-  { date: new Date('2021-03'), rate: 56 },
-  { date: new Date('2021-04'), rate: 63 },
-  { date: new Date('2021-05'), rate: 66 },
-  { date: new Date('2021-06'), rate: 87 },
-  { date: new Date('2021-07'), rate: 88 },
-  { date: new Date('2021-08'), rate: 90 }
-];
-
-const visitTypes = [
-  { group: 'Scheduled', percent: 63 },
-  { group: 'Unscheduled', percent: 37 }
-];
-
-const patientAges = [
-  { group: '0-17', percent: 24.6 },
-  { group: '18-25', percent: 12.5 },
-  { group: '26-40', percent: 25.0 },
-  { group: '41-55', percent: 14.3 },
-  { group: '56-64', percent: 12.0 },
-  { group: '65+', percent: 11.6 }
-];
-
-const patientGenders = [
-  { group: 'Female', percent: 54.4 },
-  { group: 'Male', percent: 42.9 },
-  { group: 'Unknown', percent: 2.7 }
-];
-
-const patientRaces = [
-  { group: 'White', percent: 85.9 },
-  { group: 'Black', percent: 0.6 },
-  { group: 'Hispanic/Latino', percent: 4.1 },
-  { group: 'Asian', percent: 0.9 },
-  { group: 'Other', percent: 8.5 }
-];
-
-const providerUtilization = [
-  { name: 'Truesdell', value: 107 },
-  { name: 'Ackerman', value: 81 },
-  { name: 'Lehman', value: 55.4 },
-  { name: 'Toretta', value: 100 },
-  { name: 'Patel', value: 79 },
-  { name: 'Duong', value: 102 },
-  { name: 'Arias', value: 89 }
-];
+import data from './data';
 
 // INPUT OPTIONS
 const sections = [
@@ -233,6 +151,11 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: theme.spacing(2),
     display: 'flex',
     justifyContent: 'center'
+  },
+  descriptionButton: {
+    marginTop: 0.5,
+    align: 'left',
+    alignItems: 'center'
   }
 }));
 
@@ -361,7 +284,7 @@ export default function Dashboard() {
               <Paper className={fixedHeightPaper}>
                 <RateChart
                   title='Number of Encounters per Month'
-                  data={encounters}
+                  data={data.frontier.encounters}
                   yAxisLabel=''
                 />
               </Paper>
@@ -371,7 +294,7 @@ export default function Dashboard() {
               <Paper className={fixedHeightPaper}>
                 <HorizontalBars 
                   title='Number of Encounters per Provider'
-                  data={encountersByProvider}
+                  data={data.frontier.encountersByProvider}
                   xAxisLabel='Encounters'
                 />
               </Paper>
@@ -381,7 +304,7 @@ export default function Dashboard() {
               <Paper className={fixedHeightPaper}>
                 <PieGraph 
                 title="Scheduled vs. Unscheduled Visits"
-                data={visitTypes}
+                data={data.frontier.visitTypes}
                 colors={['#8884d8', '#82ca9d']} 
               />
               </Paper>
@@ -391,7 +314,7 @@ export default function Dashboard() {
               <Paper className={fixedHeightPaper}>
                 <RateChart
                   title='Percent Global Utilization'
-                  data={globalUtilization}
+                  data={data.frontier.globalUtilization}
                   yAxisLabel='Percent'
                 />
               </Paper>
@@ -408,7 +331,7 @@ export default function Dashboard() {
               <Paper className={fixedHeightPaper}>
                 <PieGraph
                   title='Patient Ages'
-                  data={patientAges}
+                  data={data.frontier.patientAges}
                   colors={['#8884d8', '#82ca9d', '#ffc658', '#e6842a', '#e25a42', '#42a5b3']}
                 />
               </Paper>
@@ -418,7 +341,7 @@ export default function Dashboard() {
               <Paper className={fixedHeightPaper}>
                 <PieGraph
                   title='Patient Genders'
-                  data={patientGenders}
+                  data={data.frontier.patientGenders}
                   colors={['#8884d8', '#82ca9d', '#ffc658']}
                 />
               </Paper>
@@ -428,7 +351,7 @@ export default function Dashboard() {
               <Paper className={fixedHeightPaper}>
                 <PieGraph
                   title='Patient Race'
-                  data={patientRaces}
+                  data={data.frontier.patientRaces}
                   colors={['#8884d8', '#82ca9d', '#ffc658', '#e6842a', '#e25a42']}
                 />
               </Paper>
@@ -457,7 +380,7 @@ export default function Dashboard() {
               <Paper className={fixedHeightPaper}>
                 <HorizontalBars
                   title='Provider Utilization'
-                  data={providerUtilization}
+                  data={data.frontier.providerUtilization}
                   formatter={(value, name, props ) => [`${value}%`, 'percent']}
                 />
               </Paper>
