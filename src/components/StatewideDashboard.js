@@ -15,44 +15,7 @@ import SectionSelect from './SectionSelect';
 import DateRange from './DateRange';
 import ReferPatient from './ReferPatient';
 import data from './data';
-
-// INPUT OPTIONS
-const sections = [
-  { id: 'service', label: 'Service Accessibility' },
-  { id: 'epidemiology', label: 'Epidemiology' }
-]
-
-const dates = [
-  new Date('2020-09'),
-  new Date('2020-10'),
-  new Date('2020-11'),
-  new Date('2020-12'),
-  new Date('2021-01'),
-  new Date('2021-02'),
-  new Date('2021-03'),
-  new Date('2021-04'),
-  new Date('2021-05'),
-  new Date('2021-06'),
-  new Date('2021-07'),
-  new Date('2021-08')
-];
-
-const hospitals = [
-  'Barrett Hospital & Healthcare',
-  'Benefis Community Care',
-  'Big Horn County Community Hospital',
-  'Billings Clinic Hospital',
-  'Frances Mahon Deaconess Hospital',
-  'Glendive Medical Center',
-  'Holy Rosary Healthcare',
-  'Livingston HealthCare',
-  'Logan Health',
-  'Montana State Hospital',
-  'Providence Hospital',
-  'Roosevelt Medical Center',
-  'St. Luke Community Healthcare',
-  "St. Peter's Health"
-];
+import inputs from './inputs';
 
 const drawerWidth = 250;
 
@@ -244,7 +207,7 @@ export default function Dashboard() {
         {/* Section Select */}
         <Box className={classes.navTool}>
           <SectionSelect
-            options={sections}
+            options={inputs.statewideSections}
             section={section}
             handleSectionChange={handleSectionChange}
           />
@@ -252,7 +215,7 @@ export default function Dashboard() {
         {/* Date Range */}
         <Box className={classes.navTool} alignItems='center'>
           <DateRange
-            dates={dates}
+            dates={inputs.dates}
             startDate={startDate}
             handleStartChange={handleStartChange}
             endDate={endDate}
@@ -267,7 +230,7 @@ export default function Dashboard() {
             handleClose={handleDialogClose}
             hospital={hospital}
             handleHospitalChange={handleHospitalChange}
-            hospitals={hospitals}
+            hospitals={inputs.hospitals}
           />
         </Box>
       </Drawer>
