@@ -261,6 +261,15 @@ export default function Dashboard() {
                 />
               </Paper>
             </Grid>
+            {/* Crisis Facilities */}
+            <Grid item xs={6}>
+              <Paper className={fixedHeightPaper}>
+                <HospitalMap
+                  title='Crisis Facilities'
+                  data={data.statewide.crisisCenters}
+                />
+              </Paper>
+            </Grid>
             {/* Available Adult Inpatient Psychiatric Beds */}
             <Grid item xs={6}>
               <Paper className={fixedHeightPaper}>

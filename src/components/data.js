@@ -216,6 +216,50 @@ const data = {
         number: '406-345-3306',
         coordinates: [47.11804331455797, -104.70382737024401]
       }
+    ],
+    crisisCenters: [
+      {
+        name: 'Hays-Morris',
+        city: 'Butte',
+        number: '406-497-9069',
+        coordinates: [46.0161969467656, -112.53513320156156],
+      },
+      {
+        name: 'Hope House',
+        city: 'Bozeman',
+        number: '406-585-1130',
+        coordinates: [45.67077688200616, -111.00868639786783]
+      },
+      {
+        name: 'West House',
+        city: 'Hamilton',
+        number: '406-532-8990',
+        coordinates: [46.24762541551992, -114.16949333081949]
+      },
+      {
+        name: 'Dakota House',
+        city: 'Missoula',
+        number: '406-532-8949',
+        coordinates: [46.87060601776089, -114.01569854386575]
+      },
+      {
+        name: 'Lake House',
+        city: 'Polson',
+        number: '406-872-0474',
+        coordinates: [47.683630633376694, -114.16257412849876]
+      },
+      {
+        name: 'Glacier House',
+        city: 'Kalispell',
+        number: '406-751-8365',
+        coordinates: [48.19745024143021, -114.31310453991121]
+      },
+      {
+        name: 'Community Crisis Center',
+        city: 'Billings',
+        number: '406-259-8800',
+        coordinates: [45.78618683014461, -108.51378902670068]
+      }
     ]
   },
   frontier: {
