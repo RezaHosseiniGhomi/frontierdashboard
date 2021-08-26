@@ -16,6 +16,7 @@ import DateRange from './DateRange';
 import ReferPatient from './ReferPatient';
 import data from './data';
 import inputs from './inputs';
+import ChoroplethMap from './ChoroplethMap';
 
 const drawerWidth = 250;
 
@@ -106,12 +107,7 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: theme.spacing(2),
     display: 'flex',
     justifyContent: 'center'
-  },
-  // descriptionButton: {
-  //   marginTop: 0.5,
-  //   align: 'left',
-  //   alignItems: 'center'
-  // }
+  }
 }));
 
 export default function Dashboard() {
@@ -268,6 +264,12 @@ export default function Dashboard() {
                   title='Crisis Facilities'
                   data={data.statewide.crisisCenters}
                 />
+              </Paper>
+            </Grid>
+            {/* Psychiatrist Density by County */}
+            <Grid item xs={6}>
+              <Paper className={fixedHeightPaper}>
+                <ChoroplethMap />
               </Paper>
             </Grid>
             {/* Available Adult Inpatient Psychiatric Beds */}
