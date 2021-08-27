@@ -120,8 +120,10 @@ export default function Dashboard() {
   const [active1, setActive1] = useState(false);
   const [active2, setActive2] = useState(true);
   const handleClick1 = (event) => {
-    setActive1(true);
-    setActive2(false);
+    // temporarily disabled
+    ;
+    // setActive1(true);
+    // setActive2(false);
   };
   const handleClick2 = (event) => {
     setActive2(true);
