@@ -245,7 +245,7 @@ export default function Dashboard() {
             <Grid item xs={6}>
               <Paper className={fixedHeightPaper}>
                 <HospitalMap
-                  title='Hospitals with Emergency Telepsychiatry Access'
+                  title='Hospitals with Emergency Telepsychiatry Services'
                   data={data.statewide.edLocations}
                 />
               </Paper>
@@ -254,7 +254,7 @@ export default function Dashboard() {
             <Grid item xs={6}>
               <Paper className={fixedHeightPaper}>
                 <HospitalMap
-                  title='Mental Health Hospitals'
+                  title='Psychiatric Inpatient Services'
                   data={data.statewide.mentalHealthHospitals}
                 />
               </Paper>
@@ -263,7 +263,7 @@ export default function Dashboard() {
             <Grid item xs={6}>
               <Paper className={fixedHeightPaper}>
                 <HospitalMap
-                  title='Crisis Facilities'
+                  title='Community-Based Crisis Care Locations'
                   data={data.statewide.crisisCenters}
                 />
               </Paper>
