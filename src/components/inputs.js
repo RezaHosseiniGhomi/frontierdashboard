@@ -5,7 +5,8 @@ const inputs = {
     { id: 'providers', label: 'Providers' }
   ],
   statewideSections: [
-    { id: 'service', label: 'Service Accessibility' },
+    { id: 'real-time-clinical-capacity', label: 'Real-Time Clinical Capacity' },
+    { id: 'statewide-mental-health-resources', label: 'Statewide Mental Health Resources' },
     { id: 'epidemiology', label: 'Epidemiology' }
   ],
   dates: [

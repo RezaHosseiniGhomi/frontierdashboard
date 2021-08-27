@@ -235,13 +235,60 @@ export default function Dashboard() {
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
-          {/* Service Accessibility */}
-          <Box id='service' className={classes.sectionHeader}>
-            <Typography color='textSecondary' variant='h4'>Service Accessibility</Typography>
+          {/* Real-Time Clinical Capacity */}
+          <Box id='real-time-clinical-capacity' className={classes.sectionHeader}>
+            <Typography color='textSecondary' variant='h4'>Real-Time Clinical Capacity</Typography>
             <Divider />
           </Box>
           <Grid container spacing={2}>
-            {/* Hospitals with Telepsychiatry Access */}
+            {/* Available Inpatient Psychiatric Beds (Adults) */}
+            <Grid item xs={6}>
+              <Paper className={fixedHeightPaper}>
+                <Beds
+                  title='Available Inpatient Psychiatric Beds (Adult)'
+                  data={data.statewide.adultBeds}
+                  fill='#3f51b5'
+                />
+              </Paper>
+            </Grid>
+            {/* Available Inpatient Psychiatric Beds (Youth) */}
+            <Grid item xs={6}>
+              <Paper className={fixedHeightPaper}>
+                <Beds
+                  title='Available Inpatient Psychiatric Beds (Youth)'
+                  data={data.statewide.childBeds}
+                  fill='#42a5b3'
+                />
+              </Paper>
+            </Grid>
+            {/* Adult Crisis Care Capacity */}
+            <Grid item xs={6}>
+              <Paper className={fixedHeightPaper}>
+                <Beds
+                  title='Crisis Care Capacity (Adults)'
+                  data={data.statewide.adultEmPATH}
+                  fill='#82ca9d'
+                />
+              </Paper>
+            </Grid>
+            {/* Child Crisis Care Capacity */}
+            <Grid item xs={6}>
+              <Paper className={fixedHeightPaper}>
+                <Beds
+                  title='Crisis Care Capacity (Youth)'
+                  data={data.statewide.childEmPATH}
+                  fill='#8884d8'
+                />
+              </Paper>
+            </Grid>
+          </Grid>
+          {/* Statewide Mental Health Resources */}
+          <Box id='statewide-mental-health-resources' className={classes.sectionHeader}>
+            <Typography color='textSecondary' variant='h4'>Statewide Mental Health Resources</Typography>
+            <Divider />
+          </Box>
+          <Grid container spacing={2}>
+            {/* Hospitals with Telepsychiatry Services */}
             <Grid item xs={6}>
               <Paper className={fixedHeightPaper}>
                 <HospitalMap
@@ -250,7 +297,7 @@ export default function Dashboard() {
                 />
               </Paper>
             </Grid>
-            {/* Mental Health Hospitals */}
+            {/* Psychiatric Inpatient Services */}
             <Grid item xs={6}>
               <Paper className={fixedHeightPaper}>
                 <HospitalMap
@@ -259,58 +306,12 @@ export default function Dashboard() {
                 />
               </Paper>
             </Grid>
-            {/* Crisis Facilities */}
+            {/* Community-Based Crisis Care Locations */}
             <Grid item xs={6}>
               <Paper className={fixedHeightPaper}>
                 <HospitalMap
                   title='Community-Based Crisis Care Locations'
                   data={data.statewide.crisisCenters}
-                />
-              </Paper>
-            </Grid>
-            {/* Psychiatrist Density by County */}
-            <Grid item xs={6}>
-              <Paper className={fixedHeightPaper}>
-                <ChoroplethMap />
-              </Paper>
-            </Grid>
-            {/* Available Adult Inpatient Psychiatric Beds */}
-            <Grid item xs={6}>
-              <Paper className={fixedHeightPaper}>
-                <Beds
-                  title='Available Adult Inpatient Psychiatric Beds'
-                  data={data.statewide.adultBeds}
-                  fill='#3f51b5'
-                />
-              </Paper>
-            </Grid>
-            {/* Child Inpatient Psychiatric Beds */}
-            <Grid item xs={6}>
-              <Paper className={fixedHeightPaper}>
-                <Beds
-                  title='Available Child Inpatient Psychiatric Beds'
-                  data={data.statewide.childBeds}
-                  fill='#42a5b3'
-                />
-              </Paper>
-            </Grid>
-            {/* Adult EmPATH Seats */}
-            <Grid item xs={6}>
-              <Paper className={fixedHeightPaper}>
-                <Beds
-                  title='Available Adult EmPATH Seats'
-                  data={data.statewide.adultEmPATH}
-                  fill='#82ca9d'
-                />
-              </Paper>
-            </Grid>
-            {/* Child EmPATH Seats */}
-            <Grid item xs={6}>
-              <Paper className={fixedHeightPaper}>
-                <Beds
-                  title='Available Child EmPATH Seats'
-                  data={data.statewide.childEmPATH}
-                  fill='#8884d8'
                 />
               </Paper>
             </Grid>
@@ -327,11 +328,17 @@ export default function Dashboard() {
             <Divider />
           </Box>
           <Grid container spacing={2}>
+            {/* Psychiatrist Density by County */}
+            <Grid item xs={6}>
+              <Paper className={fixedHeightPaper}>
+                <ChoroplethMap />
+              </Paper>
+            </Grid>
             {/* Hospital Readmission Rate */}
             <Grid item xs={6}>
               <Paper className={fixedHeightPaper}>
-                <RateChart 
-                  title='Hospital Readmission Rate' 
+                <RateChart
+                  title='Hospital Readmission Rate'
                   data={data.statewide.readmissions} />
               </Paper>
             </Grid>
