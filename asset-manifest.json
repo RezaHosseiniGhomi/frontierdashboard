@@ -1,25 +1,25 @@
 {
   "files": {
     "main.css": "/frontierdashboard/static/css/main.a617e044.chunk.css",
-    "main.js": "/frontierdashboard/static/js/main.8976e860.chunk.js",
-    "main.js.map": "/frontierdashboard/static/js/main.8976e860.chunk.js.map",
+    "main.js": "/frontierdashboard/static/js/main.0aa05a19.chunk.js",
+    "main.js.map": "/frontierdashboard/static/js/main.0aa05a19.chunk.js.map",
     "runtime-main.js": "/frontierdashboard/static/js/runtime-main.6ecd0e3b.js",
     "runtime-main.js.map": "/frontierdashboard/static/js/runtime-main.6ecd0e3b.js.map",
     "static/css/2.da98c186.chunk.css": "/frontierdashboard/static/css/2.da98c186.chunk.css",
-    "static/js/2.a9935fcc.chunk.js": "/frontierdashboard/static/js/2.a9935fcc.chunk.js",
-    "static/js/2.a9935fcc.chunk.js.map": "/frontierdashboard/static/js/2.a9935fcc.chunk.js.map",
+    "static/js/2.1e67469d.chunk.js": "/frontierdashboard/static/js/2.1e67469d.chunk.js",
+    "static/js/2.1e67469d.chunk.js.map": "/frontierdashboard/static/js/2.1e67469d.chunk.js.map",
     "static/js/3.561b57a0.chunk.js": "/frontierdashboard/static/js/3.561b57a0.chunk.js",
     "static/js/3.561b57a0.chunk.js.map": "/frontierdashboard/static/js/3.561b57a0.chunk.js.map",
     "index.html": "/frontierdashboard/index.html",
     "static/css/2.da98c186.chunk.css.map": "/frontierdashboard/static/css/2.da98c186.chunk.css.map",
     "static/css/main.a617e044.chunk.css.map": "/frontierdashboard/static/css/main.a617e044.chunk.css.map",
-    "static/js/2.a9935fcc.chunk.js.LICENSE.txt": "/frontierdashboard/static/js/2.a9935fcc.chunk.js.LICENSE.txt"
+    "static/js/2.1e67469d.chunk.js.LICENSE.txt": "/frontierdashboard/static/js/2.1e67469d.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.6ecd0e3b.js",
     "static/css/2.da98c186.chunk.css",
-    "static/js/2.a9935fcc.chunk.js",
+    "static/js/2.1e67469d.chunk.js",
     "static/css/main.a617e044.chunk.css",
-    "static/js/main.8976e860.chunk.js"
+    "static/js/main.0aa05a19.chunk.js"
   ]
 }
